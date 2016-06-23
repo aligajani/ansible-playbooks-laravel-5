@@ -1,0 +1,22 @@
+---
+- name: Add PPA Repository
+  sudo: yes
+  apt_repository: repo={{ php_ppa }}
+
+- name: Update apt
+  sudo: yes
+  apt: update_cache=yes
+
+- name: Install PHP
+  sudo: yes
+  apt: pkg=php7.0 state=latest
+
+- name: Install PHP Packages
+  sudo: yes
+  apt: pkg={{ item }} state=latest
+  with_items: php_packages
+  when: php_packages is defined
+  notify:
+    - restart php7-fpm
+
+- include: configure.yml

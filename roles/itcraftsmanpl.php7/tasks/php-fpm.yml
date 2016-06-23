@@ -1,0 +1,136 @@
+---
+- name: Set permissions on socket - owner
+  lineinfile: "dest=/etc/php/7.0/fpm/pool.d/www.conf state=present regexp='^;?listen.owner' line='listen.owner = www-data'"
+
+- name: Set permissions on socket - group
+  lineinfile: "dest=/etc/php/7.0/fpm/pool.d/www.conf state=present regexp='^;?listen.group' line='listen.group = www-data'"
+
+- name: Set permissions on socket - mode
+  lineinfile: "dest=/etc/php/7.0/fpm/pool.d/www.conf state=present regexp='^;?listen.mode' line='listen.mode = 0660'"
+  notify: restart php7-fpm
+
+- name: Ensure timezone is set in fpm php.ini
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='date.timezone ='
+              line='date.timezone = {{ php_timezone }}'
+
+- name: Enabling opcache
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='^#?opcache.enable='
+              line='opcache.enable=1'
+
+- name: Opcache - changing revalidate frequency to 0
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='opcache.revalidate_freq='
+              line='opcache.revalidate_freq=0'
+  tags: [ development ]
+
+- name: Set session.cookie_httponly to `true`
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='session.cookie_httponly(\s)?='
+              line='session.cookie_httponly=1'
+  notify: restart php7-fpm
+
+- name: Enable session strict mode
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='session.use_strict_mode(\s)?='
+              line='session.use_strict_mode = 1'
+  notify: restart php7-fpm
+
+- name: Disable url fopen
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='allow_url_fopen(\s)?='
+              line='allow_url_fopen = Off'
+  notify: restart php7-fpm
+
+- name: Change soap.wsdl_cache_dir to new directory
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='soap.wsdl_cache_dir(\s)?='
+              line='soap.wsdl_cache_dir=/php/cache/wsdl'
+  notify: restart php7-fpm
+
+- name: Change upload_tmp_dir path
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='upload_tmp_dir(\s)?='
+              line='upload_tmp_dir=/php/cache/upload_tmp'
+  notify: restart php7-fpm
+
+- name: Exclude potentially harmfull php functions
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='disable_functions(\s)?='
+              line='disable_functions=exec,passthru,shell_exec,system,proc_open,popen'
+  notify: restart php7-fpm
+
+- name: Set post_max_size
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='post_max_size(\s)?='
+              line='post_max_size = {{ php_post_max_size }}'
+  notify: restart php7-fpm
+
+- name: Set upload_max_filesize
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='upload_max_filesize(\s)?='
+              line='upload_max_filesize = {{ php_upload_max_filesize }}'
+              create=yes
+  notify: restart php7-fpm
+
+- name: Set memory_limit
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='memory_limit(\s)?='
+              line='memory_limit = {{ php_memory_limit }}'
+  notify: restart php7-fpm
+
+- name: Set max_execution_time
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='max_execution_time(\s)?='
+              line='max_execution_time = {{ php_max_execution_time }}'
+  notify: restart php7-fpm
+
+- name: enabling opcache
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='opcache.enable='
+              line='opcache.enable={{ php_opcache_enable }}'
+              insertafter="^[opcache]"
+  notify: restart php7-fpm
+
+- name: opcache - changing revalidate frequency
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='opcache.revalidate_freq='
+              line='opcache.revalidate_freq={{ php_opcache_revalidate_freq }}'
+              insertafter="^[opcache]"
+  notify: restart php7-fpm
+
+- name: opcache - changing validate timestamps
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='opcache.validate_timestamps='
+              line='opcache.validate_timestamps={{ php_opcache_opcache_validate_timestamps }}'
+              insertafter="^[opcache]"
+  notify: restart php7-fpm
+
+- name: opcache - changing max accelerated files
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='opcache.max_accelerated_files='
+              line='opcache.validate_timestamps={{ php_opcache_max_accelerated_files }}'
+              insertafter="^[opcache]"
+  notify: restart php7-fpm
+
+- name: opcache - memory consumption
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='opcache.memory_consumption='
+              line='opcache.memory_consumption={{ php_opcache_memory_consumption }}'
+              insertafter="^[opcache]"
+  notify: restart php7-fpm
+
+- name: opcache - interned strings buffer
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='opcache.interned_strings_buffer='
+              line='opcache.interned_strings_buffer={{ php_opcache_interned_strings_buffer }}'
+              insertafter="^[opcache]"
+  notify: restart php7-fpm
+
+- name: opcache - fast shutdown
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='opcache.fast_shutdown='
+              line='opcache.fast_shutdown={{ php_opcache_fast_shutdown }}'
+              insertafter="^[opcache]"
+  notify: restart php7-fpm

@@ -1,0 +1,9 @@
+---
+ - hosts: web
+   become: yes
+   user: ubuntu
+   roles: 
+    - nginx
+    - itcraftsmanpl.php7
+    - geerlingguy.memcached 
+    - geerlingguy.php-memcached	
