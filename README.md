@@ -31,6 +31,6 @@ I would recommend [this](https://serversforhackers.com/video/ansible-installatio
 
 ##### Running
 
-Running this is as simple as executing the following command from the `/roles/` directory:
+Running this is as simple as executing the following command from the `ansible-playbooks-laravel-5/` directory:
 
 `ansible-playbook --private-key=~/.ssh/your-web-server.pem provision.yml`
