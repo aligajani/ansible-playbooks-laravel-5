@@ -1,20 +1,20 @@
 ---
 - name: Add PPA Repository
-  sudo: yes
+  become: yes
   apt_repository: repo={{ php_ppa }}
 
 - name: Update apt
-  sudo: yes
+  become: yes
   apt: update_cache=yes
 
 - name: Install PHP
-  sudo: yes
+  become: yes
   apt: pkg=php7.0 state=latest
 
 - name: Install PHP Packages
-  sudo: yes
+  become: yes
   apt: pkg={{ item }} state=latest
-  with_items: php_packages
+  with_items: "{{php_packages}}"
   when: php_packages is defined
   notify:
     - restart php7-fpm

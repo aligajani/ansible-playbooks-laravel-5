@@ -11,7 +11,8 @@ php_packages:
   - php7.0-gd
   - php7.0-mbstring
   - php7.0-mcrypt
-php_timezone: Europe/Warsaw
+  - php7.0-memcached
+php_timezone: Europe/London
 php_upload_max_filesize: "20M"
 php_post_max_size: "20M"
 php_memory_limit: "1024M"

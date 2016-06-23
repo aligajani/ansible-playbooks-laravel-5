@@ -9,7 +9,8 @@ server {
     root /var/www/{{ domain }};
     index index.php index.html index.html;
 
-    access_log /var/log/nginx/{{ domain }}.log;
+    access_log off; 
+    log_not_found off; 
     error_log /var/log/nginx/{{ domain }}-error.log error;
 
     server_name {{ domain }};

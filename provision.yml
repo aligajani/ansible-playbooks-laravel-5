@@ -6,4 +6,5 @@
     - nginx
     - itcraftsmanpl.php7
     - geerlingguy.memcached 
-    - geerlingguy.php-memcached	
+    - geerlingguy.git
+    - geerlingguy.composer
