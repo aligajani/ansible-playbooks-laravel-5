@@ -8,9 +8,10 @@ This installs the following software on your standard Linux.
 * composer
 * memcached
 
-##### Requirements
+##### Requirements 
 
-* python 2.7 must be installed on your machine
+* python 2.7 must be installed on your server
+* ansible must be installed from where you are executing playbooks
 * linux instance (e.g. ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20160610 (ami-0ae77879))
 
 ##### Brief
@@ -26,7 +27,7 @@ Ansible is a great tool for provisioning servers using an agentless form. So you
 1. Use a vagrant box on your local machine and control your fleet of servers.
 2. Use a t2.micro instance on Amazon and use it to control your fleet of servers.
 
-I would recommend this(https://serversforhackers.com/video/ansible-installation-and-basics) guide to install Ansible.
+I would recommend [this](https://serversforhackers.com/video/ansible-installation-and-basics) guide to install Ansible.
 
 ##### Running
 
