@@ -1,11 +1,16 @@
 server {
     listen 80;
     server_name *.{{ domain }};
-    return 301 http://{{ domain }};
+    return 301 https://{{ domain }};
 }
 
 server {
-    listen 80 default_server;
+    # listen 80 default_server;
+    listen 443 ssl default_server;
+
+    ssl_certificate /etc/letsencrypt/live/saveeo.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/saveeo.com/privkey.pem;
+
     root /var/www/{{ domain }};
     index index.php index.html index.html;
 

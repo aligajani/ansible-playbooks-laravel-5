@@ -62,7 +62,7 @@ The php7.0 'batteries included' build by Ondrej Sury comes with all the necessar
 
 In addition to the facilities for php above, there's nginx, with which, I am supplying optimizations such as ready-to-go gzip compression, advanced nginx setup and more.
 
-You can peek into `/roles/nginx/files/h5bp/directive-only` and observe the 2 custom `.conf` files I have added: `gzip-compression.conf` and `nginx-optimization.conf`. You can read the comments on top of each configuration line to learn.
+You can peek into `/roles/nginx/files/h5bp/directive-only` and observe the 3 custom `.conf` files I have added: `gzip-compression.conf`, `nginx-optimization.conf` and `http-optimization.conf`. You can read the comments on top of each configuration line to learn.
 
 Furthermore, once you provision, you will have `htop` support on your server. Invoking `htop` on the command line lets you monitor system usage. A nice to have tool for DevOps. 
 

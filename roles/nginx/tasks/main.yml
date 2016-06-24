@@ -15,6 +15,11 @@
   notify:
     - Reload Nginx
 
+- name: Replace Parent Nginx Config
+  copy: dest=/etc/nginx/nginx.conf src=templates/nginx.conf owner=root group=root mode=644 backup=yes 
+  notify: 
+    - Reload Nginx   
+
 - name: Add Saveeo Site Config
   template: src={{ domain }}.j2 dest=/etc/nginx/sites-available/{{ domain }} owner=root group=root
 
