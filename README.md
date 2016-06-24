@@ -2,6 +2,10 @@
 #####Minimalistic and performant setup for your apps
 ---
 
+##### Note
+
+This does not include mysql-server as I use RDS but you can easily update `provision.yml` to include a mysql installation using `ansible-galaxy`. Also, SSL is enabled, but you can disable it in by commenting out a few lines. Also, in theory, this setup should work just fine for **Symfony, Yii, CodeIgniter or any PHP framework**.
+
 ##### Motive
 
 Taylor Otwell has done a great job with Laravel Forge, but provisioning boxes yourself is my personal preference. As I have embarked upon this journey of learning DevOps, I find that Ansible gives you a very clean API to control how to build a production level box. 
