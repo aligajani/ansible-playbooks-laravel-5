@@ -11,8 +11,8 @@ This installs the following software on your standard Linux.
 ##### Requirements 
 
 * python 2.7 must be installed on your server [A]
-* ansible must be installed from where you are executing playbooks
-* linux instance (e.g. ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20160610 (ami-0ae77879))
+* ansible must be installed from where you are executing playbooks (watch video enclosed below)
+* linux instance (e.g. _ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20160610 (ami-0ae77879)_)
 
 ##### Brief
 
