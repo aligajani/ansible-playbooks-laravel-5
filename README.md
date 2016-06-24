@@ -1,4 +1,5 @@
 ###Ansible Playbooks for Laravel 5
+#### Minimalistic and performant setup for your apps
 
 ##### Motive
 
@@ -6,15 +7,7 @@ Taylor Otwell has done a great job with Laravel Forge, but provisioning boxes yo
 
 The primary advantage of building your box is this: you learn how things work and you get to ensure only the necessary components for your application are provisioned with idempotence. You can add complexity as you grow, which is better than starting with a complex setup.
 
-_I hope you will find this repository useful and I recommend you star it as I will update this with more improvements._
-
-This installs the following software on your standard Linux box.
-
-* php7 with batteries
-* nginx
-* git
-* composer
-* memcached
+_I hope you will find this repository useful and I recommend you star it as I will update it with more improvements._
 
 ##### Requirements 
 
@@ -36,6 +29,15 @@ I would recommend [this](https://serversforhackers.com/video/ansible-installatio
 Running this is as simple as executing the following command from the `ansible-playbooks-laravel-5/` directory:
 
 `ansible-playbook --private-key=~/.ssh/your-web-server.pem provision.yml`
+
+This installs the following software on your standard Linux box.
+
+* php7 with batteries
+* nginx
+* git
+* composer
+* memcached
+* htop
 
 ##### Brief
 
