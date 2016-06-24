@@ -42,7 +42,7 @@ This installs the following software on your standard Linux box.
 
 ##### Brief
 
-Ideally suitable for Laravel setups, this Ansible provision recipe does a lot more than you might think. The configurations includes the industry standard optmizations so you can run a high traffic site out of the box. 
+Ideally suitable for Laravel setups, this Ansible provision recipe does a lot more than you might think. The configurations includes the industry standard optimizations so you can run a high traffic site out of the box. 
 
 The php7.0 'batteries included' build by Ondrej Sury comes with all the necessary extensions to satisfy major framework requirements. See the list below to marvel at the range of goodies.
 
