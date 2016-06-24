@@ -1,6 +1,6 @@
 ###Ansible Playbooks for Laravel 5
 
-This installs the following software on your standard Linux.
+This installs the following software on your standard Linux box.
 
 * php7 with batteries
 * nginx
@@ -33,6 +33,12 @@ The php7.0 'batteries included' build by Ondrej Sury comes with all the necessar
 * php7.0-mcrypt
 * php7.0-memcached
 * php7.0-apcu [B]
+
+In addition to the facilities for php above, there's nginx, with which, I am supplying optmizations such as ready-to-go gzip compression, advanced nginx setup and more.
+
+You can peek into `/roles/nginx/files/h5bp/directive-only` and observe the 2 custom `.conf` files I have added: `gzip-compression.conf` and `nginx-optimization.conf`. You can read the comments on top of each configuration line to learn.
+
+Furthermore, once you provision, you will have `htop` support on your server. Invoking `htop` on the command line lets you monitor system usage. A nice to have tool for DevOps. 
 
 ##### Ansible
 

@@ -1,0 +1,8 @@
+# defaults file for htop
+---
+htop_htoprc_destinations:
+  skell:
+    dest: /etc/skel/.config/htop
+  current:
+    dest: "{{ ansible_env.HOME }}/.config/htop"
+htop_replace_htoprc: true

@@ -1,0 +1,27 @@
+# tasks file for htop
+---
+- name: install
+  apt:
+    name: htop
+    state: latest
+    update_cache: true
+    cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
+  tags: [configuration, htop, htop-install]
+
+- name: create configuration directory
+  file:
+    path: "{{ item.value.dest }}"
+    state: directory
+  with_dict: "{{ htop_htoprc_destinations }}"
+  tags: [configuration, htop, htop-configuration]
+
+- name: create configuration file
+  copy:
+    src: etc/skel/.config/htop/htoprc
+    dest: "{{ item.value.dest }}/htoprc"
+    owner: "{{ item.value.owner | default('root') }}"
+    group: "{{ item.value.group | default(item.value.owner) | default('root') }}"
+    mode: "{{ item.value.mode | default('0644') }}"
+    force: "{{ 'yes' if htop_replace_htoprc else 'no' }}"
+  with_dict: "{{ htop_htoprc_destinations }}"
+  tags: [configuration, htop, htop-configuration]

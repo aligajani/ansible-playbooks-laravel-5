@@ -8,3 +8,4 @@
     - geerlingguy.memcached 
     - geerlingguy.git
     - geerlingguy.composer
+    - tersmitten.htop

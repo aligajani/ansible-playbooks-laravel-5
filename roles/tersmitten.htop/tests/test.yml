@@ -1,0 +1,7 @@
+# test file for htop
+---
+- hosts: localhost
+  connection: local
+  sudo: true
+  roles:
+    - ../../
