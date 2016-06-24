@@ -10,7 +10,7 @@ This installs the following software on your standard Linux.
 
 ##### Requirements 
 
-* python 2.7 must be installed on your server [B]
+* python 2.7 must be installed on your server [A]
 * ansible must be installed from where you are executing playbooks
 * linux instance (e.g. ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20160610 (ami-0ae77879))
 
@@ -32,7 +32,7 @@ The php7.0 'batteries included' build by Ondrej Sury comes with all the necessar
 * php7.0-mbstring
 * php7.0-mcrypt
 * php7.0-memcached
-* php7.0-apcu [A]
+* php7.0-apcu [B]
 
 ##### Ansible
 
@@ -51,8 +51,6 @@ Running this is as simple as executing the following command from the `ansible-p
 
 ##### Apendices
 
-###### A 
-_APCU is included to make Opcode caching even better. Opcode comes with PHP 7 built-in._
+###### A _You can do this easily by running `sudo apt-get update` and then `sudo apt-get install python`_.
 
-###### B
-_You can do this easy by running `sudo apt-get update` and then `sudo apt-get install python`_.
+###### B _APCU is included to make Opcode caching even better. Opcode comes with PHP 7 built-in by default_.
