@@ -10,7 +10,7 @@ This installs the following software on your standard Linux.
 
 ##### Requirements 
 
-* python 2.7 must be installed on your server
+* python 2.7 must be installed on your server [B]
 * ansible must be installed from where you are executing playbooks
 * linux instance (e.g. ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20160610 (ami-0ae77879))
 
@@ -51,5 +51,8 @@ Running this is as simple as executing the following command from the `ansible-p
 
 ##### Apendices
 
-###### A
+###### A 
 _APCU is included to make Opcode caching even better. Opcode comes with PHP 7 built-in._
+
+###### B
+_You can do this easy by running `sudo apt-get update` and then `sudo apt-get install python`_.
