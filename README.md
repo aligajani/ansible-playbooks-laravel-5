@@ -51,6 +51,6 @@ Running this is as simple as executing the following command from the `ansible-p
 
 ##### Apendices
 
-###### A _You can do this easily by running `sudo apt-get update` and then `sudo apt-get install python`_.
+###### A | _You can do this easily by running `sudo apt-get update` and then `sudo apt-get install python`_.
 
-###### B _APCU is included to make Opcode caching even better. Opcode comes with PHP 7 built-in by default_.
+###### B | _APCU is included to make Opcode caching even better. Opcode comes with PHP 7 built-in by default_.
