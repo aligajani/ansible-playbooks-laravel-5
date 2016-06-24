@@ -4,7 +4,7 @@
 
 ##### Motive
 
-Taylor Otwell has done a great job with Laravel Forge, but provisioning boxes yourself is my personal preference. As I have embarked upon on this journey of learning DevOps, I find that Ansible gives you a very clean API to control how to build a production level box. 
+Taylor Otwell has done a great job with Laravel Forge, but provisioning boxes yourself is my personal preference. As I have embarked upon this journey of learning DevOps, I find that Ansible gives you a very clean API to control how to build a production level box. 
 
 The primary advantage of building your box is this: you learn how things work and you get to ensure only the necessary components for your application are provisioned with idempotence. You can add complexity as you grow, which is better than starting with a complex setup.
 
