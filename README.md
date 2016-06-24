@@ -16,9 +16,22 @@ This installs the following software on your standard Linux.
 
 ##### Brief
 
-Ideally suitable for Laravel setups, this Ansible provision recipe does a lot more than you might think. The nginx configuration includes the industry standard optmizations so you can run a high traffic site out of the box. 
+Ideally suitable for Laravel setups, this Ansible provision recipe does a lot more than you might think. The configurations includes the industry standard optmizations so you can run a high traffic site out of the box. 
 
-The php7.0 'batteries included' build by Ondrej Sury comes with all the necessary extensions to satisfy major framework requirements. This includes curl, fpm, mysql, gd, mbstring, mcrypt, memcached etc.
+The php7.0 'batteries included' build by Ondrej Sury comes with all the necessary extensions to satisfy major framework requirements. For example, see the list below and see the goodies that our playbooks supplies.
+
+* php7.0-common
+* php7.0-cli
+* php7.0-intl
+* php7.0-curl
+* php7.0-cgi
+* php7.0-fpm
+* php7.0-mysql
+* php7.0-gd
+* php7.0-mbstring
+* php7.0-mcrypt
+* php7.0-memcached
+* php7.0-apcu
 
 ##### Ansible
 
