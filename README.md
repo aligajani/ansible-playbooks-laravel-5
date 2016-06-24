@@ -18,7 +18,8 @@ This installs the following software on your standard Linux.
 
 Ideally suitable for Laravel setups, this Ansible provision recipe does a lot more than you might think. The configurations includes the industry standard optmizations so you can run a high traffic site out of the box. 
 
-The php7.0 'batteries included' build by Ondrej Sury comes with all the necessary extensions to satisfy major framework requirements. For example, see the list below and see the goodies that our playbooks supplies.
+The php7.0 'batteries included' build by Ondrej Sury comes with all the necessary extensions to satisfy major framework requirements. See the list below to marvel at the range of goodies.
+
 
 * php7.0-common
 * php7.0-cli
@@ -31,7 +32,7 @@ The php7.0 'batteries included' build by Ondrej Sury comes with all the necessar
 * php7.0-mbstring
 * php7.0-mcrypt
 * php7.0-memcached
-* php7.0-apcu
+* php7.0-apcu [A]
 
 ##### Ansible
 
@@ -47,3 +48,8 @@ I would recommend [this](https://serversforhackers.com/video/ansible-installatio
 Running this is as simple as executing the following command from the `ansible-playbooks-laravel-5/` directory:
 
 `ansible-playbook --private-key=~/.ssh/your-web-server.pem provision.yml`
+
+##### Apendices
+
+###### A
+_APCU is included to make Opcode caching even better. Opcode comes with PHP 7 built-in._
