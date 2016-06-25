@@ -47,7 +47,7 @@ This installs the following software on your standard Linux box.
 * htop
 * unzip
 
-Well done, you've just done a hell lot of work in 10 seconds. Now, download your app using:
+Well done, you've just done a hell lot of work in 10 seconds. Now, cd into webroot & download your app using:
 
 `sudo git clone your-github-repository-url.git .` The `.` in the end is important.
 
