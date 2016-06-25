@@ -31,7 +31,7 @@ I would recommend [this](https://serversforhackers.com/video/ansible-installatio
 
 ##### Running
 
-The first thing you should do is update your domain name in `/nginx/vars/main.yml`.
+The first thing you should do is update your domain name in `/roles/nginx/vars/main.yml`.
 
 Then run the provisioner using the following command from the `ansible-playbooks-laravel-5/` directory:
 
