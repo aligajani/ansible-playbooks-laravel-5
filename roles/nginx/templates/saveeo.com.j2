@@ -31,6 +31,13 @@ server {
         try_files $uri $uri/ /index.php?$query_string;
     }
 
+    location /js {
+     location ~* .(js)$ {
+        deny all;
+        return 403;
+     }
+    }
+
     location ~ \.php$ {
         try_files $uri =404;
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
