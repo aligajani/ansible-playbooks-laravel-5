@@ -4,7 +4,7 @@
 
 ##### Note
 
-This does not include mysql-server as I use RDS but you can easily update `provision.yml` to include a mysql installation using `ansible-galaxy`. Also, SSL is enabled, but you can disable it in by commenting out a few lines. Also, in theory, this setup should work just fine for **Symfony, Yii, CodeIgniter or any PHP framework**.
+This does not include mysql-server as I use RDS but you can easily update `provision.yml` to include a mysql installation using `ansible-galaxy`. Also, SSL is enabled, but you can disable it by commenting out a few lines. Also, in theory, this setup should work just fine for **Symfony, Yii, CodeIgniter or any PHP framework**.
 
 ##### Motive
 
@@ -31,7 +31,9 @@ I would recommend [this](https://serversforhackers.com/video/ansible-installatio
 
 ##### Running
 
-Running this is as simple as executing the following command from the `ansible-playbooks-laravel-5/` directory:
+The first thing you should do is update your domain name in `/nginx/vars/main.yml`.
+
+Then run the provisioner using the following command from the `ansible-playbooks-laravel-5/` directory:
 
 `ansible-playbook --private-key=~/.ssh/your-web-server.pem provision.yml`
 
@@ -43,6 +45,25 @@ This installs the following software on your standard Linux box.
 * composer
 * memcached
 * htop
+* unzip
+
+Well done, you've just done a hell lot of work in 10 seconds. Now, download your app using:
+
+`sudo git clone your-github-repository-url.git .`. The `.` in the end is important.
+
+Then, do `sudo touch .env` and add in your production environment variables.
+
+Next, run `sudo composer install` from the inside of webroot which would be at `/var/www/domain.com/`. 
+
+Finally, enter these two commands to establish the correct permissions on your `cache` and `storage` folders. 
+
+```
+sudo chgrp -R www-data storage bootstrap/cache
+sudo chmod -R ug+rwx storage bootstrap/cache
+```
+
+You should now be able to access your app at `domain.com`.
+
 
 ##### Brief
 
@@ -63,6 +84,7 @@ The php7.0 'batteries included' build by Ondrej Sury comes with all the necessar
 * php7.0-mcrypt
 * php7.0-memcached
 * php7.0-apcu [B]
+* php7.0-xml
 
 In addition to the facilities for php above, there's nginx, with which, I am supplying optimizations such as ready-to-go gzip compression, advanced nginx setup and more.
 

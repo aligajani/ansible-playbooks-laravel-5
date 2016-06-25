@@ -8,3 +8,10 @@
   lineinfile: dest=/etc/php/7.0/cli/php.ini
               regexp='opcache.enable_cli='
               line='opcache.enable_cli=0'
+
+# Removes the Zend Opcache 
+
+- name: Remove Redudant OpCache Symlink
+  become: yes
+  file: dest=/etc/php/7.0/cli/conf.d/20-opcache.ini state=absent
+       
