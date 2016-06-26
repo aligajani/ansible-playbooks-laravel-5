@@ -27,3 +27,6 @@
 
 - name: Ensure Memcached is started and set to run on startup.
   service: name=memcached state=started enabled=yes
+
+- name: Install libmemcached-tools
+  apt: pkg=libmemcached-tools state=latest update_cache=true
