@@ -46,6 +46,7 @@ This installs the following software on your standard Linux box.
 * memcached
 * htop
 * unzip
+* libmemcached-tools
 
 Well done, you've just done a hell lot of work in 10 seconds. 
 
