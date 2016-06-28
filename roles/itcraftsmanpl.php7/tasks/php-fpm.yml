@@ -141,4 +141,6 @@
               regexp='opcache.fast_shutdown='
               line='opcache.fast_shutdown={{ php_opcache_fast_shutdown }}'
               insertafter="^[opcache]"
-  notify: restart php7-fpm
+  notify:
+    - restart php7-fpm
+    - Reload Nginx
