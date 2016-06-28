@@ -58,5 +58,15 @@ server {
         # deny all;
    }
 
+   location ~ ^/(fpm_status|fpm_ping)$ {
+     access_log off;
+     #allow 127.0.0.1;
+     #allow 1.2.3.4#your-ip;
+     #deny all;
+     include fastcgi_params;
+     fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+     fastcgi_pass 127.0.0.1:9000;
+ }
+
 
 }
