@@ -27,6 +27,12 @@
               regexp='^#?opcache.enable='
               line='opcache.enable=1'
 
+- name: Enabling allow_url_fopen
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini
+              regexp='^#?allow_url_fopen='
+              line='allow_url_fopen=1'
+
+
 - name: Opcache - changing revalidate frequency to 0
   lineinfile: dest=/etc/php/7.0/fpm/php.ini
               regexp='opcache.revalidate_freq='
