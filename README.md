@@ -1,6 +1,6 @@
-#Ansible Playbooks for Laravel 5
+Ansible Playbooks for Laravel 5
 ---
-#Minimalistic and performant setup for your apps
+Minimalistic and performant setup for your apps
 ---
 
 ##### Note
